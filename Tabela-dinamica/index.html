@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tabela Dinamica</title>
+    <link rel="stylesheet" href="../Tabela-dinamica/style.css" />
+  </head>
+  <body>
+    <nav class="tabs">
+      <div class="tabs-rail"></div>
+      <ul class="tabs-list">
+        <li class="tab"><a href="../index.html">Inicio</a></li>
+        <li class="tab"><a href="../Cadastro-estudantil/index.html">Estudantil</a></li>
+        <li class="tab"><a href="../Cadastro-pessoa-fisica/index.html">Pessoa Fisica</a></li>
+        <li class="tab"><a href="../Cadastro-postal/index.html">Cadastro Postal</a></li>
+        <li class="tab"><a href="../Carrosel/index.html">Carrossel</a></li>
+        <li class="tab"><a href="../Graficos/index.html">Gráficos</a></li>
+        <li class="tab is-active"><a href="../Tabela-dinamica/index.html">Tabelas</a></li>
+        <li class="tab"><a href="../Prototipo/index.html">LandPage</a></li>
+        <li class="tab"><a href="../Localizacao/index.html">Localizacao</a></li>
+      </ul>
+    </nav>
+    <main class="container">
+      <header class="page-header">
+        <h1>Tabela Dinamica</h1>
+      </header>
+
+
+      <section class="section inventory">
+        <form class="filters" aria-label="Filtros e exibição de colunas">
+          <div class="filters-group">
+            <h3 class="filters-title">Categoria</h3>
+            <label><input type="checkbox" id="cat-notebook" class="cat"> Notebook</label>
+            <label><input type="checkbox" id="cat-desktop" class="cat"> Desktop</label>
+            <label><input type="checkbox" id="cat-monitor" class="cat"> Monitor</label>
+            <label><input type="checkbox" id="cat-teclado" class="cat"> Teclado</label>
+            <label><input type="checkbox" id="cat-mouse" class="cat"> Mouse</label>
+            <label><input type="checkbox" id="cat-headset" class="cat"> Headset</label>
+            <label><input type="checkbox" id="cat-rede" class="cat"> Rede</label>
+            <label><input type="checkbox" id="cat-armazenamento" class="cat"> Armazenamento</label>
+            <label><input type="checkbox" id="cat-outros" class="cat"> Outros</label>
+          </div>
+
+          <div class="filters-group">
+            <h3 class="filters-title">Status</h3>
+            <label><input type="checkbox" id="st-uso" class="status"> Em uso</label>
+            <label><input type="checkbox" id="st-estoque" class="status"> Estoque</label>
+            <label><input type="checkbox" id="st-manutencao" class="status"> Manutenção</label>
+            <label><input type="checkbox" id="st-descartado" class="status"> Descartado</label>
+          </div>
+
+          <div class="filters-group">
+            <h3 class="filters-title">Colunas</h3>
+            <label><input type="checkbox" id="col-especificacoes" checked> Especificações</label>
+            <label><input type="checkbox" id="col-preco" checked> Preço</label>
+            <label><input type="checkbox" id="col-numserie" checked> Nº Série</label>
+            <label><input type="checkbox" id="col-observacoes" checked> Observações</label>
+          </div>
+        </form>
+
+        <div class="table-wrap">
+          <table class="table" aria-describedby="hint">
+            <thead>
+              <tr>
+                <th>Categoria</th>
+                <th>Item</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th class="col-especificacoes">Especificações</th>
+                <th class="num">Qtd</th>
+                <th class="num col-preco">Preço (R$)</th>
+                <th>Status</th>
+                <th>Local</th>
+                <th class="col-numserie">Nº Série</th>
+                <th class="col-observacoes">Observações</th>
+                <th>Atualizado</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr data-cat="Notebook" data-status="Em uso">
+                    <td>Notebook</td><td>Notebook 14"</td><td>Lenovo</td><td>ThinkPad L14 G3</td>
+                    <td class="col-especificacoes">Ryzen 5 5650U, 16GB, 512GB SSD</td>
+                    <td class="num">1</td><td class="num col-preco">5.900,00</td>
+                    <td class="status">Em uso</td><td>Financeiro</td>
+                    <td class="col-numserie">LN-L14-2025-001</td><td class="col-observacoes">Fonte reserva</td><td>2025-10-05</td>
+                </tr>
+
+                <tr data-cat="Notebook" data-status="Estoque">
+                    <td>Notebook</td><td>Notebook 15"</td><td>Dell</td><td>Latitude 5420</td>
+                    <td class="col-especificacoes">i7-1165G7, 16GB, 512GB SSD</td>
+                    <td class="num">2</td><td class="num col-preco">6.500,00</td>
+                    <td class="status">Estoque</td><td>TI</td>
+                    <td class="col-numserie">DL-5420-EST-01</td><td class="col-observacoes">Pronto para entrega</td><td>2025-10-11</td>
+                </tr>
+
+                <tr data-cat="Desktop" data-status="Em uso">
+                    <td>Desktop</td><td>PC Torre</td><td>HP</td><td>ProDesk 600 G6</td>
+                    <td class="col-especificacoes">i5-10500, 16GB, 256GB SSD + 1TB</td>
+                    <td class="num">1</td><td class="num col-preco">4.800,00</td>
+                    <td class="status">Em uso</td><td>Atendimento</td>
+                    <td class="col-numserie">HP-PD600-002</td><td class="col-observacoes"></td><td>2025-10-03</td>
+                </tr>
+
+                <tr data-cat="Desktop" data-status="Manutenção">
+                    <td>Desktop</td><td>Mini PC</td><td>Intel</td><td>NUC 11</td>
+                    <td class="col-especificacoes">i7-1165G7, 32GB, 1TB SSD</td>
+                    <td class="num">1</td><td class="num col-preco">5.200,00</td>
+                    <td class="status">Manutenção</td><td>Laboratório</td>
+                    <td class="col-numserie">NUC11-REPARO-01</td><td class="col-observacoes">Troca de pasta térmica</td><td>2025-10-02</td>
+                </tr>
+
+                <tr data-cat="Monitor" data-status="Em uso">
+                    <td>Monitor</td><td>Monitor 27"</td><td>Dell</td><td>P2722H</td>
+                    <td class="col-especificacoes">IPS, 75Hz, Full HD</td>
+                    <td class="num">1</td><td class="num col-preco">1.150,00</td>
+                    <td class="status">Em uso</td><td>Design</td>
+                    <td class="col-numserie">DL-P27-001</td><td class="col-observacoes"></td><td>2025-10-06</td>
+                </tr>
+
+                <tr data-cat="Monitor" data-status="Estoque">
+                    <td>Monitor</td><td>Monitor 24"</td><td>AOC</td><td>24B1XHS</td>
+                    <td class="col-especificacoes">IPS, Full HD</td>
+                    <td class="num">3</td><td class="num col-preco">650,00</td>
+                    <td class="status">Estoque</td><td>Almoxarifado</td>
+                    <td class="col-numserie">AOC-24-EST-03</td><td class="col-observacoes">Caixa lacrada</td><td>2025-10-10</td>
+                </tr>
+
+                <tr data-cat="Teclado" data-status="Estoque">
+                    <td>Teclado</td><td>Teclado ABNT2</td><td>Logitech</td><td>K120</td>
+                    <td class="col-especificacoes">Membrana, USB</td>
+                    <td class="num">8</td><td class="num col-preco">75,00</td>
+                    <td class="status">Estoque</td><td>Almoxarifado</td>
+                    <td class="col-numserie">LOG-K120-EST</td><td class="col-observacoes"></td><td>2025-10-04</td>
+                </tr>
+
+                <tr data-cat="Teclado" data-status="Em uso">
+                    <td>Teclado</td><td>Teclado mecânico</td><td>HyperX</td><td>Alloy FPS</td>
+                    <td class="col-especificacoes">Switch Red, ABNT2</td>
+                    <td class="num">2</td><td class="num col-preco">350,00</td>
+                    <td class="status">Em uso</td><td>Dev</td>
+                    <td class="col-numserie">HX-FPS-DEV01</td><td class="col-observacoes"></td><td>2025-10-08</td>
+                </tr>
+
+                <tr data-cat="Mouse" data-status="Em uso">
+                    <td>Mouse</td><td>Mouse sem fio</td><td>Logitech</td><td>MX Master 3S</td>
+                    <td class="col-especificacoes">Bluetooth/USB, 8K DPI</td>
+                    <td class="num">1</td><td class="num col-preco">620,00</td>
+                    <td class="status">Em uso</td><td>Diretoria</td>
+                    <td class="col-numserie">LOG-MX3S-01</td><td class="col-observacoes"></td><td>2025-10-09</td>
+                </tr>
+
+                <tr data-cat="Mouse" data-status="Estoque">
+                    <td>Mouse</td><td>Mouse óptico</td><td>Multilaser</td><td>MO251</td>
+                    <td class="col-especificacoes">USB, 1200 DPI</td>
+                    <td class="num">12</td><td class="num col-preco">29,90</td>
+                    <td class="status">Estoque</td><td>Almoxarifado</td>
+                    <td class="col-numserie">ML-MO251-EST</td><td class="col-observacoes">Uso geral</td><td>2025-10-01</td>
+                </tr>
+                <tr data-cat="Headset" data-status="Em uso">
+                    <td>Headset</td><td>Headset com microfone</td><td>Jabra</td><td>Evolve 40</td>
+                    <td class="col-especificacoes">USB/3.5mm, cancelamento passivo</td>
+                    <td class="num">3</td><td class="num col-preco">480,00</td>
+                    <td class="status">Em uso</td><td>Suporte</td>
+                    <td class="col-numserie">JB-EV40-SUP</td><td class="col-observacoes"></td><td>2025-10-07</td>
+                </tr>
+
+                <tr data-cat="Headset" data-status="Estoque">
+                    <td>Headset</td><td>Headset básico</td><td>Redragon</td><td>Lamia</td>
+                    <td class="col-especificacoes">USB, 7.1 virtual</td>
+                    <td class="num">5</td><td class="num col-preco">199,00</td>
+                    <td class="status">Estoque</td><td>Almoxarifado</td>
+                    <td class="col-numserie">RD-LAMIA-EST</td><td class="col-observacoes"></td><td>2025-10-05</td>
+                </tr>
+
+                <tr data-cat="Rede" data-status="Manutenção">
+                    <td>Rede</td><td>Switch 24p</td><td>TP-Link</td><td>TL-SG1024DE</td>
+                    <td class="col-especificacoes">Gigabit, Gerenciável</td>
+                    <td class="num">1</td><td class="num col-preco">850,00</td>
+                    <td class="status">Manutenção</td><td>Rack-Sala 1</td>
+                    <td class="col-numserie">TPL-1024-88</td><td class="col-observacoes">Fan ruidosa</td><td>2025-10-07</td>
+                </tr>
+
+                <tr data-cat="Rede" data-status="Em uso">
+                    <td>Rede</td><td>Roteador</td><td>Ubiquiti</td><td>UniFi Dream Machine</td>
+                    <td class="col-especificacoes">Gateway + Controller</td>
+                    <td class="num">1</td><td class="num col-preco">2.300,00</td>
+                    <td class="status">Em uso</td><td>Datacenter</td>
+                    <td class="col-numserie">UBI-UDM-01</td><td class="col-observacoes">Controller ativo</td><td>2025-10-12</td>
+                </tr>
+
+                <tr data-cat="Armazenamento" data-status="Estoque">
+                    <td>Armazenamento</td><td>SSD NVMe</td><td>Samsung</td><td>980 Pro 1TB</td>
+                    <td class="col-especificacoes">PCIe 4.0, até 7000MB/s</td>
+                    <td class="num">6</td><td class="num col-preco">650,00</td>
+                    <td class="status">Estoque</td><td>Almoxarifado</td>
+                    <td class="col-numserie">SMG-980P-1TB-EST</td><td class="col-observacoes"></td><td>2025-10-11</td>
+                </tr>
+
+                <tr data-cat="Armazenamento" data-status="Descartado">
+                    <td>Armazenamento</td><td>HD 1TB</td><td>Seagate</td><td>Barracuda</td>
+                    <td class="col-especificacoes">SATA III, 7200 rpm</td>
+                    <td class="num">1</td><td class="num col-preco">280,00</td>
+                    <td class="status">Descartado</td><td>Patrimônio</td>
+                    <td class="col-numserie">SGT-1TB-002</td><td class="col-observacoes">Bad blocks</td><td>2025-09-30</td>
+                </tr>
+
+                <tr data-cat="Outros" data-status="Em uso">
+                    <td>Outros</td><td>Dock Station</td><td>Dell</td><td>WD19S</td>
+                    <td class="col-especificacoes">USB-C, 130W</td>
+                    <td class="num">2</td><td class="num col-preco">1.050,00</td>
+                    <td class="status">Em uso</td><td>Comercial</td>
+                    <td class="col-numserie">DL-WD19S-02</td><td class="col-observacoes"></td><td>2025-10-10</td>
+                </tr>
+
+                <tr data-cat="Outros" data-status="Estoque">
+                    <td>Outros</td><td>Webcam</td><td>Logitech</td><td>C920</td>
+                    <td class="col-especificacoes">1080p</td>
+                    <td class="num">7</td><td class="num col-preco">320,00</td>
+                    <td class="status">Estoque</td><td>Almoxarifado</td>
+                    <td class="col-numserie">LOG-C920-EST</td><td class="col-observacoes">Caixa lacrada</td><td>2025-10-06</td>
+                </tr>
+
+                <tr data-cat="Outros" data-status="Em uso">
+                    <td>Outros</td><td>Nobreak</td><td>SMS</td><td>Manager 1400VA</td>
+                    <td class="col-especificacoes">8 tomadas, USB</td>
+                    <td class="num">1</td><td class="num col-preco">950,00</td>
+                    <td class="status">Em uso</td><td>Rack-Sala 2</td>
+                    <td class="col-numserie">SMS-1400-01</td><td class="col-observacoes">Bateria OK</td><td>2025-10-02</td>
+                </tr>
+
+                <tr data-cat="Outros" data-status="Estoque">
+                    <td>Outros</td><td>Impressora Laser</td><td>Brother</td><td>HL-L6402DW</td>
+                    <td class="col-especificacoes">Monocromática, Duplex</td>
+                    <td class="num">1</td><td class="num col-preco">3.900,00</td>
+                    <td class="status">Estoque</td><td>Almoxarifado</td>
+                    <td class="col-numserie">BHL-6402-EST</td><td class="col-observacoes"></td><td>2025-10-01</td>
+                </tr>
+
+                <tr data-cat="Outros" data-status="Manutenção">
+                    <td>Outros</td><td>Projetor</td><td>Epson</td><td>EB-X41</td>
+                    <td class="col-especificacoes">3.600 lúmens, XGA</td>
+                    <td class="num">1</td><td class="num col-preco">2.200,00</td>
+                    <td class="status">Manutenção</td><td>Audt.</td>
+                    <td class="col-numserie">EPS-X41-01</td><td class="col-observacoes">Troca de lâmpada</td><td>2025-10-03</td>
+                </tr>
+                </tbody>
+          </table>
+        </div>
+
+        <p id="hint" class="disclaimer">
+          Marque as categorias/status para filtrar (união). Desmarque colunas para ocultar.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

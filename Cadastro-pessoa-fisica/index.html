@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastro de pessoa física</title>
+    <link rel="stylesheet" href="../Cadastro-pessoa-fisica/style.css"/>
+  </head>
+  <body>
+    <nav class="tabs">
+      <div class="tabs-rail"></div>
+      <ul class="tabs-list">
+        <li class="tab"><a href="../index.html">Inicio</a></li>
+        <li class="tab"><a href="../Cadastro-estudantil/index.html">Estudantil</a></li>
+        <li class="tab is-active"><a href="../Cadastro-pessoa-fisica/index.html">Pessoa Fisica</a></li>
+        <li class="tab"><a href="../Cadastro-postal/index.html">Cadastro Postal</a></li>
+        <li class="tab"><a href="../Carrosel/index.html">Carrossel</a></li>
+        <li class="tab"><a href="../Graficos/index.html">Gráficos</a></li>
+        <li class="tab"><a href="../Tabela-dinamica/index.html">Tabelas</a></li>
+        <li class="tab"><a href="../Prototipo/index.html">LandPage</a></li>
+        <li class="tab"><a href="../Localizacao/index.html">Localizacao</a></li>
+      </ul>
+    </nav>
+    <main class="container">
+      <header class="page-header">
+        <h1>Cadastro de pessoa física</h1>
+        <p>Preencha os dados abaixo. Campos marcados com * são obrigatórios.</p>
+      </header>
+
+
+      <form id="cadastro-pf" novalidate>
+        <fieldset class="section">
+          <legend>Identificação</legend>
+
+          <div class="grid">
+            <div class="field">
+              <label for="nomeCompleto">Nome completo *</label>
+              <input id="nomeCompleto" name="nomeCompleto" type="text" required />
+            </div>
+
+            <div class="field">
+              <label for="nomeSocial">Nome social</label>
+              <input id="nomeSocial" name="nomeSocial" type="text" />
+            </div>
+
+            <div class="field">
+              <label for="cpf">CPF *</label>
+              <input
+                id="cpf"
+                name="cpf"
+                type="text"
+                inputmode="numeric"
+                maxlength="14"
+                placeholder="000.000.000-00"
+                pattern="^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="nascimento">Data de nascimento *</label>
+              <input id="nascimento" name="nascimento" type="date" required />
+            </div>
+
+            <div class="field">
+              <label for="sexo">Sexo *</label>
+              <select id="sexo" name="sexo" required>
+                <option value="" selected disabled>Selecionar...</option>
+                <option>Feminino</option>
+                <option>Masculino</option>
+                <option>Intersexo</option>
+                <option>Prefiro não informar</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="rg">RG</label>
+              <input id="rg" name="rg" type="text" />
+            </div>
+
+            <div class="field">
+              <label for="orgaoEmissor">Órgão emissor</label>
+              <input id="orgaoEmissor" name="orgaoEmissor" type="text" placeholder="ex.: SSP-SP" />
+            </div>
+
+            <div class="field">
+              <label for="emissao">Data de emissão</label>
+              <input id="emissao" name="emissao" type="date" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="section">
+          <legend>Filiação</legend>
+
+          <div class="grid">
+            <div class="field">
+              <label for="mae">Nome da mãe</label>
+              <input id="mae" name="mae" type="text" />
+            </div>
+
+            <div class="field">
+              <label for="pai">Nome do pai</label>
+              <input id="pai" name="pai" type="text" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="section">
+          <legend>Endereço</legend>
+
+          <div class="grid">
+            <div class="field field-2">
+              <label for="endereco">Endereço *</label>
+              <input id="endereco" name="endereco" type="text" placeholder="Rua, avenida..." required />
+            </div>
+
+            <div class="field">
+              <label for="numero">Número *</label>
+              <input id="numero" name="numero" type="text" required />
+            </div>
+
+            <div class="field">
+              <label for="complemento">Complemento</label>
+              <input id="complemento" name="complemento" type="text" placeholder="Apto, bloco..." />
+            </div>
+
+            <div class="field">
+              <label for="bairro">Bairro *</label>
+              <input id="bairro" name="bairro" type="text" required />
+            </div>
+
+            <div class="field">
+              <label for="cep">CEP *</label>
+              <input
+                id="cep"
+                name="cep"
+                type="text"
+                inputmode="numeric"
+                maxlength="9"
+                placeholder="00000-000"
+                pattern="^\d{5}-?\d{3}$"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="cidade">Cidade *</label>
+              <input id="cidade" name="cidade" type="text" required />
+            </div>
+
+            <div class="field field-2">
+              <label for="naturalidade">Naturalidade</label>
+              <input id="naturalidade" name="naturalidade" type="text" placeholder="Cidade/UF de nascimento" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="section">
+          <legend>Outros</legend>
+
+          <div class="grid">
+            <div class="field">
+              <label for="tituloEleitor">Título de Eleitor</label>
+              <input
+                id="tituloEleitor"
+                name="tituloEleitor"
+                type="text"
+                inputmode="numeric"
+                maxlength="12"
+                placeholder="Somente números"
+                pattern="^\d{10,12}$"
+              />
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Enviar</button>
+          <button type="reset" class="btn">Limpar</button>
+        </div>
+
+        <p class="disclaimer">
+          Ao enviar, você concorda com o uso dos dados conforme nossa política de privacidade.
+        </p>
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+/* ===== Base curta no seu estilo ===== */
+*{box-sizing:border-box} html,body{height:100%}
+:root{
+  --brand:#4f46e5; --brand-2:#22c55e; --muted:#6b7280; --line:#e5e7eb;
+  --card:#fff; --bg:#f7fafc; --space:16px; --radius:14px;
+}
+
+.tabs{
+  position:relative;
+  margin: 6px 0 10px;
+  height: 58px;                 /* altura total do conjunto */
+}
+.tabs-rail{
+  position:absolute; left:10px; right:10px; bottom:10px;
+  height: 40px;                 /* “trilho” onde as abas sentam */
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,.03);
+}
+.tabs-list{
+  position:relative; z-index:1; /* fica acima do trilho */
+  display:flex; gap:10px;
+  margin:0; padding:0 18px;
+  list-style:none;
+  height:100%;
+  align-items:flex-end;
+}
+.tab{ display:flex; align-items:flex-end; }
+
+/* Aba padrão (pill branca) – sem clip-path */
+.tab a{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding: 9px 16px;
+  height: 40px;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  background:#fff;
+  color:#0f172a;
+  text-decoration:none;
+  font-weight:600;
+  line-height:1;
+  box-shadow:0 1px 1px rgba(0,0,0,.04);
+  transition: background .15s ease, color .15s ease, box-shadow .2s ease;
+}
+.tab a:hover{ background:#f8fafc; }
+
+/* Aba ativa – mais alta, azul, com “orelhas” suaves */
+.tab.is-active{ z-index:2; }   /* garante que fica acima das vizinhas */
+.tab.is-active a{
+  background:#4f46e5;
+  color:#fff;
+  border-color: transparent;
+  box-shadow: 0 6px 14px rgba(79,70,229,.24), 0 1px 1px rgba(0,0,0,.04);
+  transform: translateY(-4px); /* levanta um pouco */
+}
+
+/* Orelhas via pseudo (sem cortar texto) */
+.tab.is-active a::before,
+.tab.is-active a::after{
+  content:""; position:absolute; top:0; bottom:0; width:10px;
+  background:#4f46e5;
+}
+.tab.is-active a::before{
+  left:-6px; border-top-left-radius:12px; border-bottom-left-radius:12px;
+}
+.tab.is-active a::after{
+  right:-6px; border-top-right-radius:12px; border-bottom-right-radius:12px;
+}
+
+/* Responsivo – quebra em duas linhas sem “pulos” */
+@media (max-width:760px){
+  .tabs{ height:auto; }
+  .tabs-rail{ position:static; height: auto; margin: 6px 10px 0; }
+  .tabs-list{ flex-wrap:wrap; padding:10px; gap:8px; align-items:center; }
+  .tab.is-active a{ transform:none; } /* evita deslocamento no wrap */
+}
+
+body{
+  margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.45; color:#0f172a;
+  background:
+    radial-gradient(1200px 400px at 10% -10%, #eef2ff 0, transparent 60%),
+    radial-gradient(1200px 400px at 110% 110%, #ecfeff 0, transparent 60%),
+    var(--bg);
+}
+.container{max-width:1100px;margin:0 auto;padding:calc(var(--space)*2) var(--space)}
+.page-header{text-align:center;margin-bottom:calc(var(--space)*1.2)}
+.page-header h1{
+  margin:0 0 8px; font-size:clamp(1.6rem,3vw,2.2rem);
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.muted{color:var(--muted);font-size:.95rem;margin:0}
+
+/* ===== Grid de cards ===== */
+.cards-grid{
+  display:grid;
+  grid-template-columns: repeat(12,1fr);
+  gap: calc(var(--space) * 1.25);
+}
+.chart-card{ grid-column: span 12; }
+
+@media (min-width: 860px){
+  /* 2 cards por linha em telas médias; último ocupa 12 se preferir */
+  .chart-card{ grid-column: span 6; }
+  .chart-card:last-child{ grid-column: span 12; }
+}
+
+/* ===== Card estiloso ===== */
+.chart-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 30px rgba(15,23,42,.06);
+  transition: transform .08s ease, box-shadow .2s ease;
+}
+.chart-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(2,6,23,.12), 0 2px 4px rgba(0,0,0,.05);
+}
+
+/* Cabeçalho com faixa sutil */
+.card-head{
+  padding: 14px 16px;
+  border-bottom:1px solid var(--line);
+  background: linear-gradient(180deg,#fff, #f9fbff);
+}
+.title-wrap{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+}
+.title-wrap h2{
+  margin:0; font-size:1.05rem; font-weight:700;
+}
+.badge{
+  padding:4px 10px; border-radius:999px; font-size:.8rem; font-weight:600;
+  border:1px solid var(--line); background:#fff; color:#0f172a;
+}
+.badge.alt{ background:#f8fafc; }
+
+/* pontinho colorido por matéria */
+.dot{width:10px;height:10px;border-radius:999px;display:inline-block}
+.dot-math{background:#6366f1}
+.dot-port{background:#22c55e}
+.dot-cien{background:#0284c7}
+.dot-hist{background:#f97316}
+.dot-geo {background:#a855f7}
+
+/* Corpo */
+.card-body{ padding: 12px 12px 4px; }
+.card-body canvas{ width:100%; max-height:420px; }
+
+/* Rodapé (stats) */
+.card-foot{
+  display:flex; gap:18px; flex-wrap:wrap;
+  padding: 12px 16px 16px;
+  border-top:1px dashed #e9edf3;
+  background: #fff;
+}
+.stat{ display:flex; align-items:baseline; gap:8px; }
+.stat span{ color:var(--muted); font-size:.9rem; }
+.stat strong{ font-size:1.05rem; }
+
+/* Ajustes responsivos */
+@media (max-width: 680px){
+  .card-body canvas{ max-height:340px; }
+}
