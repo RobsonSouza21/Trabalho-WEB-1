@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* O corpo deve ter fundo BRANCO e texto PRETO */
+body {
+    font-family: arial, sans-serif;
+    color: black; 
+    background-color: rgb(255, 255, 255); 
+}
+
+.tabs{
+  position:relative;
+  margin: 6px 0 10px;
+  height: 58px;                 /* altura total do conjunto */
+}
+.tabs-rail{
+  position:absolute; left:10px; right:10px; bottom:10px;
+  height: 40px;                 /* “trilho” onde as abas sentam */
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,.03);
+}
+.tabs-list{
+  position:relative; z-index:1; /* fica acima do trilho */
+  display:flex; gap:10px;
+  margin:0; padding:0 18px;
+  list-style:none;
+  height:100%;
+  align-items:flex-end;
+}
+.tab{ display:flex; align-items:flex-end; }
+
+/* Aba padrão (pill branca) – sem clip-path */
+.tab a{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding: 9px 16px;
+  height: 40px;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  background:#fff;
+  color:#0f172a;
+  text-decoration:none;
+  font-weight:600;
+  line-height:1;
+  box-shadow:0 1px 1px rgba(0,0,0,.04);
+  transition: background .15s ease, color .15s ease, box-shadow .2s ease;
+}
+.tab a:hover{ background:#f8fafc; }
+
+/* Aba ativa – mais alta, azul, com “orelhas” suaves */
+.tab.is-active{ z-index:2; }   /* garante que fica acima das vizinhas */
+.tab.is-active a{
+  background:#4f46e5;
+  color:#fff;
+  border-color: transparent;
+  box-shadow: 0 6px 14px rgba(79,70,229,.24), 0 1px 1px rgba(0,0,0,.04);
+  transform: translateY(-4px); /* levanta um pouco */
+}
+
+/* Orelhas via pseudo (sem cortar texto) */
+.tab.is-active a::before,
+.tab.is-active a::after{
+  content:""; position:absolute; top:0; bottom:0; width:10px;
+  background:#4f46e5;
+}
+.tab.is-active a::before{
+  left:-6px; border-top-left-radius:12px; border-bottom-left-radius:12px;
+}
+.tab.is-active a::after{
+  right:-6px; border-top-right-radius:12px; border-bottom-right-radius:12px;
+}
+
+/* Responsivo – quebra em duas linhas sem “pulos” */
+@media (max-width:760px){
+  .tabs{ height:auto; }
+  .tabs-rail{ position:static; height: auto; margin: 6px 10px 0; }
+  .tabs-list{ flex-wrap:wrap; padding:10px; gap:8px; align-items:center; }
+  .tab.is-active a{ transform:none; } /* evita deslocamento no wrap */
+}
+
+
+/* O cabeçalho deve manter as cores escuras que você definiu */
+header {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navegacao a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-family: "Jua", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+}
+
+.navegacao a:hover,
+.navegacao .ativo {
+    color:purple;
+}
+
+footer {
+    padding: 20px;
+    clear: both;
+    border-top: 1px solid #606060;
+    background-color: black;
+}
+
+footer p {
+    text-align: center;
+    color: white;
+}
+
+.link {
+    color: white;
+    color: inherit; 
+    text-decoration: none;
+}
+
+.catalogo-jogos {
+    background-color: white; 
+    padding: 30px;
+    max-width: 1100px; 
+    margin: 0 auto;
+}
+
+.titulo-secao {
+    font-size: 1.5em;
+    margin: 40px 0 10px 0;
+    color: black; 
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.linha-jogos {
+    display: flex;
+    gap: 20px; 
+    flex-wrap: wrap; 
+}
+
+
+.linha-principal .card-jogo {
+    flex-basis: calc(50% - 10px); 
+    max-width: calc(50% - 10px);
+    padding-bottom: 5px; 
+}
+
+.capa-jogo {
+    background-color: #e0e0e0; 
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.capa-grande {
+    height: 280px; 
+}
+
+.linha-recente .card-jogo {
+    flex-basis: calc(33.33% - 13.33px);
+    height: auto;
+}
+
+.capa-pequena {
+    height: 200px;
+}
+
+.header-card {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 5px 0;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.nome-jogo { flex-grow: 1; }
+.plataformas { margin-right: 15px; color: #404040; }
+.favorito { font-size: 1.2em; cursor: pointer; margin-left: auto; }
+.estrela-cheia { color: gold; }
+.estrela-vazia { color: #c0c0c0; }
+
+.detalhes-jogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.tags-jogo {
+    font-size: 0.9em;
+    color: #404040; 
+    font-weight: bold;
+}
+
+.preco {
+    font-weight: bold;
+    color: black;
+}

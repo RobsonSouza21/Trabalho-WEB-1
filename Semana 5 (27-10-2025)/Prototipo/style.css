@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: arial, sans-serif;
+    color: white;
+    background-color: rgb(255, 255, 255);
+}
+
+header {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.tabs{
+  position:relative;
+  margin: 6px 0 10px;
+  height: 58px;                 /* altura total do conjunto */
+}
+.tabs-rail{
+  position:absolute; left:10px; right:10px; bottom:10px;
+  height: 40px;                 /* “trilho” onde as abas sentam */
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,.03);
+}
+.tabs-list{
+  position:relative; z-index:1; /* fica acima do trilho */
+  display:flex; gap:10px;
+  margin:0; padding:0 18px;
+  list-style:none;
+  height:100%;
+  align-items:flex-end;
+}
+.tab{ display:flex; align-items:flex-end; }
+
+/* Aba padrão (pill branca) – sem clip-path */
+.tab a{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding: 9px 16px;
+  height: 40px;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  background:#fff;
+  color:#0f172a;
+  text-decoration:none;
+  font-weight:600;
+  line-height:1;
+  box-shadow:0 1px 1px rgba(0,0,0,.04);
+  transition: background .15s ease, color .15s ease, box-shadow .2s ease;
+}
+.tab a:hover{ background:#f8fafc; }
+
+/* Aba ativa – mais alta, azul, com “orelhas” suaves */
+.tab.is-active{ z-index:2; }   /* garante que fica acima das vizinhas */
+.tab.is-active a{
+  background:#4f46e5;
+  color:#fff;
+  border-color: transparent;
+  box-shadow: 0 6px 14px rgba(79,70,229,.24), 0 1px 1px rgba(0,0,0,.04);
+  transform: translateY(-4px); /* levanta um pouco */
+}
+
+/* Orelhas via pseudo (sem cortar texto) */
+.tab.is-active a::before,
+.tab.is-active a::after{
+  content:""; position:absolute; top:0; bottom:0; width:10px;
+  background:#4f46e5;
+}
+.tab.is-active a::before{
+  left:-6px; border-top-left-radius:12px; border-bottom-left-radius:12px;
+}
+.tab.is-active a::after{
+  right:-6px; border-top-right-radius:12px; border-bottom-right-radius:12px;
+}
+
+/* Responsivo – quebra em duas linhas sem “pulos” */
+@media (max-width:760px){
+  .tabs{ height:auto; }
+  .tabs-rail{ position:static; height: auto; margin: 6px 10px 0; }
+  .tabs-list{ flex-wrap:wrap; padding:10px; gap:8px; align-items:center; }
+  .tab.is-active a{ transform:none; } /* evita deslocamento no wrap */
+}
+
+
+.navegacao a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-family: "Jua", sans-serif;
+    font-weight: 400px;
+    font-style: normal;
+    font-size: 30px;
+}
+
+.navegacao a:hover,
+.navegacao .ativo { /* Estilo para o link da página atual */
+    color:purple;
+}
+
+
+.banner {
+    background-image: url(../Prototipo/images/Banner\ Jogos.jpg);
+    padding: 100px;    
+    text-align: center;
+}
+
+.novidades {
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.novidades h2 {
+    color: black;
+    text-align: left;
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.novidades-container {
+    display: flex;
+    justify-content: left;
+    align-content: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.noticia {
+    background-color: white;
+    width: 300px;
+    text-align: center;
+    color: black;
+    border-radius: 8px;
+}
+
+.noticia h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}   
+
+.noticia .imagem#nt1{
+    width: 100%;
+    height: 160px;
+    background-image: url(../images/Hollow\ Night\ noticia.png);
+    margin-bottom: 10px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.noticia .imagem#nt2{
+    width: 100%;
+    height: 160px;
+    background-image: url(../Prototipo/images/PAC-MAN\ noticia.png);
+    margin-bottom: 10px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.noticia .imagem#nt3{
+    width: 100%;
+    height: 160px;
+    background-image: url(../Prototipo/images/grow-a-garden-noticia.png);
+    margin-bottom: 10px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.noticia .imagem#nt4{
+    width: 100%;
+    height: 160px;
+    background-image: url(../Prototipo/images/horizon-light-of-motiram\ noticia.png);
+    margin-bottom: 10px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.noticia .imagem#jg1{
+    width: 100%;
+    height: 160px;
+    background-image: url(../Prototipo/images/roblox1\ jogo\ 1.png);
+    margin-bottom: 10px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.noticia .imagem#jg2{
+    width: 100%;
+    height: 160px;
+    background-image: url(../Prototipo/images/fortnite-festival-season-9-jogo\ 2.png);
+    margin-bottom: 10px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.noticia .imagem#jg3{
+    width: 100%;
+    height: 160px;
+    background-image: url(../Prototipo/images/HOLLOW\ NIGHT\ SILKSONG\ JOGO3.PNG);
+    margin-bottom: 10px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.noticia .imagem#jg4{
+    width: 100%;
+    height: 160px;
+    background-image: url(../Prototipo/images/Minecraft\ JOGO\ 4.PNG);
+    margin-bottom: 10px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.noticia p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: black;
+    text-align: justify;
+    text-align-last: center;
+    padding: 0px;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+
+footer {
+    padding: 20px;
+    clear: both;
+    border-top: 1px solid #606060;
+    background-color: black;
+}
+
+footer p {
+    text-align: center;
+    color: white;
+}
+
+.link {
+    color: white;
+    color: inherit;
+    text-decoration: none;
+}
+

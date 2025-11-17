@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carrosséis</title>
+    <link rel="stylesheet" href="../Carrosel/style.css" />
+  </head>
+  <body>
+    <nav class="tabs">
+      <div class="tabs-rail"></div>
+      <ul class="tabs-list">
+        <li class="tab"><a href="../Abertura/index.html">Inicio</a></li>
+        <li class="tab"><a href="../Cadastro-estudantil/index.html">Estudantil</a></li>
+        <li class="tab"><a href="../Cadastro-pessoa-fisica/index.html">Pessoa Fisica</a></li>
+        <li class="tab"><a href="../Cadastro-postal/index.html">Cadastro Postal</a></li>
+        <li class="tab is-active"><a href="../Carrosel/index.html">Carrossel</a></li>
+        <li class="tab"><a href="../Graficos/index.html">Gráficos</a></li>
+        <li class="tab"><a href="../Tabela-dinamica/index.html">Tabelas</a></li>
+        <li class="tab"><a href="../Prototipo/index.html">LandPage</a></li>
+        <li class="tab"><a href="../Localizacao/index.html">Localizacao</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <header class="page-header">
+        <h1>Carrosséis</h1>
+        <p>Carrossel de destaque (1 imagem) e galeria com 3 imagens por vez.</p>
+      </header>
+
+      <!-- ===== CARROSSEL 1 IMAGEM ===== -->
+      <section class="section">
+        <div class="card">
+          <h2>Carrossel – 1 imagem por vez</h2>
+
+          <div class="carousel-one">
+            <div class="window">
+              <div class="track">
+                <figure class="slide"><img src="../Imagens/img1.jpg" alt="Imagem 1" /></figure>
+                <figure class="slide"><img src="../Imagens/img2.jpg" alt="Imagem 2" /></figure>
+                <figure class="slide"><img src="../Imagens/img3.jpg" alt="Imagem 3" /></figure>
+                <figure class="slide"><img src="../Imagens/img4.jpg" alt="Imagem 4" /></figure>
+                <figure class="slide"><img src="../Imagens/img5.jpg" alt="Imagem 5" /></figure>
+                <figure class="slide"><img src="../Imagens/img1.jpg" alt="" /></figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CARROSSEL 3 IMAGENS ===== -->
+      <section class="section">
+        <div class="card">
+          <h2>Carrossel – 3 imagens lado a lado</h2>
+          <p class="subtitle">Mostra três imagens ao mesmo tempo e troca em bloco.</p>
+
+          <div class="carousel-three">
+            <div class="window">
+              <div class="track">
+                <!-- 1..6 → suas imagens reais -->
+                <figure class="slide"><img src="../Imagens/img1.jpg" alt="Imagem 1" /></figure>
+                <figure class="slide"><img src="../Imagens/img2.jpg" alt="Imagem 2" /></figure>
+                <figure class="slide"><img src="../Imagens/img3.jpg" alt="Imagem 3" /></figure>
+                <figure class="slide"><img src="../Imagens/img4.jpg" alt="Imagem 4" /></figure>
+                <figure class="slide"><img src="../Imagens/img5.jpg" alt="Imagem 5" /></figure>
+                <figure class="slide"><img src="../Imagens/img6.jpg" alt="Imagem 6" /></figure>
+
+                <!-- Repete as 3 primeiras p/ loop suave -->
+                <figure class="slide"><img src="../Imagens/img1.jpg" alt="" /></figure>
+                <figure class="slide"><img src="../Imagens/img2.jpg" alt="" /></figure>
+                <figure class="slide"><img src="../Imagens/img3.jpg" alt="" /></figure>
+              </div>
+            </div>
+          </div>
+
+          <p class="carousel-tip">Passe o mouse sobre os carrosséis para pausar a animação.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
